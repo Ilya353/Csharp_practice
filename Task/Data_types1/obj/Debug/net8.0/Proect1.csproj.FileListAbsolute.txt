@@ -1,0 +1,14 @@
+D:\Практика S#\Proect1\bin\Debug\net8.0\Proect1.exe
+D:\Практика S#\Proect1\bin\Debug\net8.0\Proect1.deps.json
+D:\Практика S#\Proect1\bin\Debug\net8.0\Proect1.runtimeconfig.json
+D:\Практика S#\Proect1\bin\Debug\net8.0\Proect1.dll
+D:\Практика S#\Proect1\bin\Debug\net8.0\Proect1.pdb
+D:\Практика S#\Proect1\obj\Debug\net8.0\Proect1.GeneratedMSBuildEditorConfig.editorconfig
+D:\Практика S#\Proect1\obj\Debug\net8.0\Proect1.AssemblyInfoInputs.cache
+D:\Практика S#\Proect1\obj\Debug\net8.0\Proect1.AssemblyInfo.cs
+D:\Практика S#\Proect1\obj\Debug\net8.0\Proect1.csproj.CoreCompileInputs.cache
+D:\Практика S#\Proect1\obj\Debug\net8.0\Proect1.dll
+D:\Практика S#\Proect1\obj\Debug\net8.0\refint\Proect1.dll
+D:\Практика S#\Proect1\obj\Debug\net8.0\Proect1.pdb
+D:\Практика S#\Proect1\obj\Debug\net8.0\Proect1.genruntimeconfig.cache
+D:\Практика S#\Proect1\obj\Debug\net8.0\ref\Proect1.dll
