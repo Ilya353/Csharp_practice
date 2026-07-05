@@ -1,0 +1,14 @@
+D:\Практика S#\commodity_research\bin\Debug\net8.0\commodity_research.exe
+D:\Практика S#\commodity_research\bin\Debug\net8.0\commodity_research.deps.json
+D:\Практика S#\commodity_research\bin\Debug\net8.0\commodity_research.runtimeconfig.json
+D:\Практика S#\commodity_research\bin\Debug\net8.0\commodity_research.dll
+D:\Практика S#\commodity_research\bin\Debug\net8.0\commodity_research.pdb
+D:\Практика S#\commodity_research\obj\Debug\net8.0\commodity_research.GeneratedMSBuildEditorConfig.editorconfig
+D:\Практика S#\commodity_research\obj\Debug\net8.0\commodity_research.AssemblyInfoInputs.cache
+D:\Практика S#\commodity_research\obj\Debug\net8.0\commodity_research.AssemblyInfo.cs
+D:\Практика S#\commodity_research\obj\Debug\net8.0\commodity_research.csproj.CoreCompileInputs.cache
+D:\Практика S#\commodity_research\obj\Debug\net8.0\commodity_research.dll
+D:\Практика S#\commodity_research\obj\Debug\net8.0\refint\commodity_research.dll
+D:\Практика S#\commodity_research\obj\Debug\net8.0\commodity_research.pdb
+D:\Практика S#\commodity_research\obj\Debug\net8.0\commodity_research.genruntimeconfig.cache
+D:\Практика S#\commodity_research\obj\Debug\net8.0\ref\commodity_research.dll
