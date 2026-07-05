@@ -1,0 +1,21 @@
+# Visual Studio / Build results
+[Bb]in/
+[Oo]bj/
+[Rr]elease/
+[Dd]ebug/
+*.user
+*.suo
+.vs/
+
+# Rider / VS Code
+.idea/
+.vscode/
+*.sln.iml
+
+# NuGet packages
+packages/
+*.nupkg
+
+# Logs and temp files
+*.log
+*.tmp
