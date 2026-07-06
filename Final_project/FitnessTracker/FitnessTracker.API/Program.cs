@@ -4,18 +4,18 @@ using FitnessTracker.Console.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Контроллеры.
+// РљРѕРЅС‚СЂРѕР»Р»РµСЂС‹.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-// Настройка Swagger с документацией.
+// РќР°СЃС‚СЂРѕР№РєР° Swagger СЃ РґРѕРєСѓРјРµРЅС‚Р°С†РёРµР№.
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
     {
         Title = "Fitness Tracker API",
         Version = "v1",
-        Description = "API для учета личных тренировок и физической активности",
+        Description = "API РґР»СЏ СѓС‡РµС‚Р° Р»РёС‡РЅС‹С… С‚СЂРµРЅРёСЂРѕРІРѕРє Рё С„РёР·РёС‡РµСЃРєРѕР№ Р°РєС‚РёРІРЅРѕСЃС‚Рё",
         Contact = new Microsoft.OpenApi.Models.OpenApiContact
         {
             Name = "Support",
@@ -24,7 +24,7 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// Настройка CORS.
+// РќР°СЃС‚СЂРѕР№РєР° CORS.
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
@@ -36,12 +36,12 @@ builder.Services.AddCors(options =>
         });
 });
 
-// Подключение к базе данных.
+// РџРѕРґРєР»СЋС‡РµРЅРёРµ Рє Р±Р°Р·Рµ РґР°РЅРЅС‹С….
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-// Регистрация сервисов.
+// Р РµРіРёСЃС‚СЂР°С†РёСЏ СЃРµСЂРІРёСЃРѕРІ.
 builder.Services.AddScoped<TrainingProgramService>();
 builder.Services.AddScoped<ExerciseService>();
 builder.Services.AddScoped<ActivityService>();
