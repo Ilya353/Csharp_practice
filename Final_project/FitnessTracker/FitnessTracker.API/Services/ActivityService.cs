@@ -102,7 +102,7 @@ namespace FitnessTracker.Console.Services
             }
             else
             {
-                status = "Высокая активность (возможно переутомление)";
+                status = "Высокая активность";
                 statusColor = "Красный";
             }
 
@@ -145,7 +145,7 @@ namespace FitnessTracker.Console.Services
                 }
                 else
                 {
-                    status = "Высокая активность (возможно переутомление)";
+                    status = "Высокая активность";
                     statusColor = "Красный";
                 }
 
