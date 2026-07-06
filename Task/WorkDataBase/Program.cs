@@ -5,7 +5,7 @@ using System.Data;
 using System.Reflection;
 
 
-//Управление соединениями.
+// Управление соединениями.
 class ConnectionManager
 {
     private readonly string _connectionString;
@@ -15,7 +15,7 @@ class ConnectionManager
         _connectionString = connectionString;
     }
 
-    //Использование Connection Pool.
+    // Использование Connection Pool.
     public async Task ExecuteWithConnectionAsync(Func<SqlConnection, Task> action)
     {
         using (var connection = new SqlConnection(_connectionString))
@@ -25,7 +25,7 @@ class ConnectionManager
         }
     }
 
-    //Получение статистики соединения.
+    // Получение статистики соединения.
     public void PrintConnectionStatistics()
     {
         var pool = new SqlConnectionStringBuilder(_connectionString);
@@ -35,7 +35,7 @@ class ConnectionManager
     }
 }
 
-//Выполнение входа.
+// Выполнение входа.
 class CommandExecutor
 {
     private readonly string _connectionString;
@@ -67,7 +67,7 @@ class CommandExecutor
         }
     }
 
-    //Вызов хранимых процедур.
+    // Вызов хранимых процедур.
     public async Task CallStoredProcedureAsync(string procedureName, params SqlParameter[] parameters)
     {
         using (var connection = new SqlConnection(_connectionString))
@@ -81,7 +81,7 @@ class CommandExecutor
     }
 }
 
-//Работа с транзакциями.
+// Работа с транзакциями.
 class TransactionService
 {
     private readonly string _connectionString;
@@ -116,7 +116,7 @@ class TransactionService
     }
 }
 
-//Конфигурация DbContext.
+// Конфигурация DbContext.
 class ApplicationDbContext : DbContext
 {
     private readonly string _connectionString;
@@ -128,7 +128,7 @@ class ApplicationDbContext : DbContext
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
-        //Отключаем отслеживание для запросов только для чтения.
+        // Отключаем отслеживание для запросов только для чтения.
         ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
     }
 
@@ -155,7 +155,7 @@ class ApplicationDbContext : DbContext
         }
     }
 }
-//Таблица Client.
+// Таблица Client.
 [Table("Client")]
 class Client
 {
@@ -167,7 +167,7 @@ class Client
     public bool IsActive { get; set; }
 }
 
-//Таблица Product.
+// Таблица Product.
 [Table("Product")]
 class Product
 {
@@ -177,21 +177,21 @@ class Product
     public int StockQuantity { get; set; }
 }
 
-//Демонстрация работы.
+// Демонстрация работы.
 class AutoPartsStoreApp
 {
     static async Task Main(string[] args)  
     {
         string connectionString = "Server=.\\SQLEXPRESS;Database=AutoPartsStore;Trusted_Connection=True;TrustServerCertificate=True;";
 
-        //ADO.NET.
+        // ADO.NET.
         Console.WriteLine(" ADO.NET (ConnectionManager)");
 
         var connectionManager = new ConnectionManager(connectionString);  
         var commandExecutor = new CommandExecutor(connectionString);  
         var transactionService = new TransactionService(connectionString);
 
-        //Вывод таблицы клиентов через ConnectionManager.
+        // Вывод таблицы клиентов через ConnectionManager.
         await connectionManager.ExecuteWithConnectionAsync(async (connection) =>  
         {
             const string sql = "SELECT TOP 5 Name, Phone, Email, RegistrationDate, IsActive FROM Client ORDER BY Name";
@@ -214,7 +214,7 @@ class AutoPartsStoreApp
             }
         });
 
-        //Выполнение запросов через CommandExecutor.
+        // Выполнение запросов через CommandExecutor.
         Console.WriteLine("\n ADO.NET (CommandExecutor)");
         string countSql = "SELECT COUNT(*) FROM Client";
         var count = await commandExecutor.ExecuteScalarAsync(countSql); 
@@ -224,7 +224,7 @@ class AutoPartsStoreApp
         var productsCount = await commandExecutor.ExecuteScalarAsync(productsCountSql);          
         Console.WriteLine($"Всего продуктов: {productsCount}");
 
-        //Тест транзакции.
+        // Тест транзакции.
         Console.WriteLine("\n Тест транзакции:");
         await transactionService.ExecuteTransactionAsync(async (transaction) =>
         {
@@ -236,7 +236,7 @@ class AutoPartsStoreApp
             }
         });
 
-        //Entity Framework.
+        // Entity Framework.
         using (var dbContext = new ApplicationDbContext(connectionString)) 
         {
             try
@@ -245,7 +245,7 @@ class AutoPartsStoreApp
                 Console.WriteLine($"Статус подключения: {canConnect}");
                 if (canConnect)
                 {
-                    //Получение данных через EF.
+                    // Получение данных через EF.
                     var clients = await dbContext.Clients
                         .Where(c => c.IsActive == true)
                         .OrderBy(c => c.Name)
