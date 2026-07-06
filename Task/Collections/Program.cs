@@ -5,12 +5,12 @@ public class SmartStack<T> : IEnumerable<T>
     private T[] _array;
     private int _count;
 
-    //Конструктор без параметров.
+    // Конструктор без параметров.
     public SmartStack() : this(4)
     {
     }
 
-    //Вывод стека.
+    // Вывод стека.
     public void Print()
     {
         if (_count == 0)
@@ -25,7 +25,7 @@ public class SmartStack<T> : IEnumerable<T>
         }
     }
 
-    //Конструктор с 1 целочисленным параметром.
+    // Конструктор с 1 целочисленным параметром.
     public SmartStack(int i)
     {
         if (i < 0)
@@ -34,7 +34,7 @@ public class SmartStack<T> : IEnumerable<T>
         _count = 0;
     }
 
-    //Конструктор,который в качестве параметра принимает коллекцию.
+    // Конструктор,который в качестве параметра принимает коллекцию.
     public SmartStack(IEnumerable<T> collection)
     {
         if (collection == null)
@@ -50,7 +50,7 @@ public class SmartStack<T> : IEnumerable<T>
         }
     }
 
-    //Метод для изменения размера массива.
+    // Метод для изменения размера массива.
     private void Resize(int size)
     {
         T[] _newArray = new T[size];
@@ -58,7 +58,7 @@ public class SmartStack<T> : IEnumerable<T>
         _array = _newArray;
     }
 
-    //Добавление элемента на вершину стека.
+    // Добавление элемента на вершину стека.
     public void Push(T item)
     {
         if (_count == _array.Length)
@@ -68,7 +68,7 @@ public class SmartStack<T> : IEnumerable<T>
         _array[_count++] = item;
     }
 
-    //Добавление на вершину стека содержимого коллекции.
+    // Добавление на вершину стека содержимого коллекции.
     public void PushRange(IEnumerable<T> coll)
     {
         if (coll == null)
@@ -95,7 +95,7 @@ public class SmartStack<T> : IEnumerable<T>
         }
     }
 
-    //Удаление и возвращение элемента с вершины стека.
+    // Удаление и возвращение элемента с вершины стека.
     public T Pop()
     {
         if (_count == 0)
@@ -107,7 +107,7 @@ public class SmartStack<T> : IEnumerable<T>
         return result;
     }
 
-    //Возвращение элемента с вершины стека без удаления.
+    // Возвращение элемента с вершины стека без удаления.
     public T Peek()
     {
         if (_count == 0)
@@ -115,7 +115,7 @@ public class SmartStack<T> : IEnumerable<T>
         return _array[_count - 1];
     }
 
-    //Проверка наличия элемента в стеке.
+    // Проверка наличия элемента в стеке.
     public bool Contains(T item)
     {
         EqualityComparer<T> comparer = EqualityComparer<T>.Default;
@@ -127,13 +127,13 @@ public class SmartStack<T> : IEnumerable<T>
         return false;
     }
 
-    //Получение длины стека.
+    // Получение длины стека.
     public int Capacity => _array.Length;
 
     //Получение количества элиментов в стеке.
     public int Count => _count;
 
-    //Методы реализующий интерфейсы IEnumerable и IEnumerable<T>.
+    // Методы реализующий интерфейсы IEnumerable и IEnumerable<T>.
     public IEnumerator<T> GetEnumerator()
     {
         for (int i = _count - 1; i >= 0; i--)
@@ -147,7 +147,7 @@ public class SmartStack<T> : IEnumerable<T>
         return GetEnumerator();
     }
 
-    //Индексатор, позволяющий работать с элементами по глубине.
+    // Индексатор, позволяющий работать с элементами по глубине.
     public T this[int depth]
     {
         get
